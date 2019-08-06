@@ -1,6 +1,5 @@
 package com.github.zx.render;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.github.zx.object.ISprite;
 
@@ -15,14 +14,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class RenderManager {
 
+    private final CameraManager cameraManager;
     private final SpriteBatch spriteBatch = new SpriteBatch();
-    private OrthographicCamera camera = new OrthographicCamera();
     private Map<String,Render> renderMap = new HashMap<String, Render>();
     private final ConcurrentHashMap<Object, Chunk> worldObjectChunkMap = new ConcurrentHashMap<Object, Chunk>();
 
     //todo 读取配置(渲染器与脚本的绑定),先写成代码
 
     public RenderManager(){
+        cameraManager = new CameraManager();
         renderMap.put(StaticRender.class.getSimpleName(),RenderFactory.CreateStaticRender(spriteBatch));
     }
 
@@ -31,6 +31,9 @@ public class RenderManager {
         for (Map.Entry<String, Render> entry : entries) {
             entry.getValue().draw();
         }
+        cameraManager.handleInput();
+        spriteBatch.setProjectionMatrix(cameraManager.getCamera().combined);
+        cameraManager.getCamera().update();
     }
 
     //放入一个sprite的方法，分别存入外部map和对应render存储
@@ -50,5 +53,9 @@ public class RenderManager {
 
     public SpriteBatch getSpriteBatch() {
         return spriteBatch;
+    }
+
+    public CameraManager getCameraManager() {
+        return cameraManager;
     }
 }

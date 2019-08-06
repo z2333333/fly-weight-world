@@ -18,7 +18,13 @@ public class WorldBuilder extends WorldBuilderTemplate {
     @Override
     public void builderLand() {
         //new object 存入对应render
-        MossyLand mossyLand = new MossyLand();
-        this.getRenderManager().setWorldObjectChunkMap(0,0,mossyLand, StaticRender.class);
+        int mapSize = 128;
+        for (int i = 0; i <= mapSize; i++) {
+            for (int j = 0; j <= mapSize; j++) {
+                MossyLand mossyLand = new MossyLand();
+                mossyLand.setPosition(i * 128, j * 128);
+                this.getRenderManager().setWorldObjectChunkMap(i, j, mossyLand, StaticRender.class);
+            }
+        }
     }
 }
