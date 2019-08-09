@@ -1,6 +1,6 @@
 package com.github.zx.render;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 
 /**
  * @Author: zx
@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public class StaticRender extends RenderAbstract{
 
-    public StaticRender(SpriteBatch spriteBatch) {
+    public StaticRender(Batch spriteBatch) {
         super(spriteBatch);
     }
 

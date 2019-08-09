@@ -1,6 +1,7 @@
 package com.github.zx.render;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.github.zx.object.ISprite;
 
 import java.util.HashMap;
@@ -15,7 +16,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RenderManager {
 
     private final CameraManager cameraManager;
-    private final SpriteBatch spriteBatch = new SpriteBatch();
+    /**Spritebatch不能绘制多边形纹理,而在两个batch之前切换会导致许多不必要的批量刷新,全局用PolygonSpriteBatch
+     * https://www.badlogicgames.com/wordpress/?p=3289
+     */
+    //private final SpriteBatch spriteBatch = new SpriteBatch();
+    private final PolygonSpriteBatch spriteBatch = new PolygonSpriteBatch();
     private Map<String,Render> renderMap = new HashMap<String, Render>();
     private final ConcurrentHashMap<Object, Chunk> worldObjectChunkMap = new ConcurrentHashMap<Object, Chunk>();
 
@@ -51,7 +56,7 @@ public class RenderManager {
         return renderMap.get(classz.getSimpleName());
     }
 
-    public SpriteBatch getSpriteBatch() {
+    public Batch getSpriteBatch() {
         return spriteBatch;
     }
 

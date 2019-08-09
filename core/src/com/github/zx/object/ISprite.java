@@ -1,6 +1,6 @@
 package com.github.zx.object;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.Batch;
 
 /**
  * @Author: zx
@@ -8,5 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
  */
 public interface ISprite {
 
-    Sprite getSprite();
+    //<T> T getSprite();
+
+    void draw(Batch batch);
 }

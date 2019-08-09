@@ -23,6 +23,7 @@ public class FlyWeightWorldApplication {
     }
 
     public void draw(){
+        //这里分别对renderManager调用spriteBach和polygonbatch,并在manager中区分
         renderManager.getSpriteBatch().begin();
         renderManager.draw();
         renderManager.getSpriteBatch().end();

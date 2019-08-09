@@ -1,15 +1,23 @@
 package com.github.zx.utils;
 public class AssetsNameSpace {
 
+	public static final String core$assets$textures$surfaces$RoughStone$png = "core/assets/textures/surfaces/RoughStone.png";
+
 	public static final String core$assets$CowboyHat_back$png = "core/assets/CowboyHat_back.png";
 
 	public static final String core$assets$Male_Average_Pointy_front$png = "core/assets/Male_Average_Pointy_front.png";
+
+	public static final String core$assets$textures$surfaces$SoilRich$png = "core/assets/textures/surfaces/SoilRich.png";
 
 	public static final String core$assets$Burgundy_front$png = "core/assets/Burgundy_front.png";
 
 	public static final String core$assets$Mossy$png = "core/assets/Mossy.png";
 
 	public static final String core$assets$Naked_Female_front$png = "core/assets/Naked_Female_front.png";
+
+	public static final String core$assets$textures$surfaces$SoftSand$png = "core/assets/textures/surfaces/SoftSand.png";
+
+	public static final String core$assets$textures$surfaces$Soil$png = "core/assets/textures/surfaces/Soil.png";
 
 	public static final String core$assets$Mossyx128$png = "core/assets/Mossy-x128.png";
 

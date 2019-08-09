@@ -1,6 +1,6 @@
 package com.github.zx.render;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.github.zx.object.ISprite;
 
 import java.util.List;
@@ -26,8 +26,8 @@ public interface Render {
      */
     void dispose();
 
-    void setSpriteBatch(SpriteBatch spriteBatch);
-    SpriteBatch getRenderSpriteBatch();
+    void setSpriteBatch(Batch spriteBatch);
+    Batch getRenderSpriteBatch();
     List<ISprite> getRenderObjectList();
     boolean addObject(ISprite sprite);
 }

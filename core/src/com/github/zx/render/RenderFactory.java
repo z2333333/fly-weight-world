@@ -1,6 +1,6 @@
 package com.github.zx.render;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 
 /**
  * @Author: zx
@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public class RenderFactory {
 
-    public static Render CreateStaticRender(SpriteBatch spriteBatch){
+    public static Render CreateStaticRender(Batch spriteBatch){
         return new StaticRender(spriteBatch);
     }
 

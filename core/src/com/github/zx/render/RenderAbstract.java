@@ -1,6 +1,6 @@
 package com.github.zx.render;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.github.zx.object.ISprite;
 
 import java.util.ArrayList;
@@ -14,22 +14,23 @@ public abstract class RenderAbstract implements Render{
 
     //世界地图的容器和单个render的容器划分
     private List<ISprite> renderObjectList = new ArrayList<ISprite>();
-    private SpriteBatch spriteBatch;
+    private Batch spriteBatch;
 
-    public RenderAbstract(SpriteBatch spriteBatch){
+    public RenderAbstract(Batch spriteBatch){
         this.spriteBatch = spriteBatch;
     }
 
     //draw方法
     public void draw(){
         for (ISprite sprite:renderObjectList) {
-            sprite.getSprite().draw(spriteBatch);
+            //sprite.getSprite().draw(spriteBatch);
+            sprite.draw(spriteBatch);
         }
     }
-    public void setSpriteBatch(SpriteBatch spriteBatch){
+    public void setSpriteBatch(Batch spriteBatch){
         this.spriteBatch = spriteBatch;
     }
-    public SpriteBatch getRenderSpriteBatch(){
+    public Batch getRenderSpriteBatch(){
         return this.spriteBatch;
     }
     public List<ISprite> getRenderObjectList(){
