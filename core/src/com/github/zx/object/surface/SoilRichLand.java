@@ -15,11 +15,9 @@ import com.github.zx.utils.AssetsNameSpace;
 public class SoilRichLand extends PolygonSpriteAbstract {
 
     public static Texture texture = new Texture(Gdx.files.internal(AssetsNameSpace.core$assets$textures$surfaces$SoilRich$png));
-//    public float[] points = new float[]{0,0,100,100,80,100,80,120,0,120,0,0};
-//    PolygonRegion polygonRegion = new PolygonRegion(new TextureRegion(texture),points,new short[] {0,1,2});
-//    public PolygonSprite polygonSprite = new PolygonSprite(polygonRegion);
 
-    public SoilRichLand(){
-        super(new PolygonSprite(new PolygonRegion(new TextureRegion(texture),new float[]{0,0,100,100,80,100,80,120,0,120,0,0},new short[] {0,1,2})));
+    public SoilRichLand(float[] pointCoordinates){
+        super(new PolygonSprite(new PolygonRegion(new TextureRegion(texture),pointCoordinates,new short[] {0,1,2})));
     }
+    //new float[]{0,0,100,100,80,100,80,120,0,120,0,0}
 }

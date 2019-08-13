@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.math.MathUtils;
+import com.github.zx.utils.WorldConstant;
 
 /**
  * @Author: zx
@@ -15,10 +15,13 @@ public class CameraManager {
     private OrthographicCamera camera;
     private float w = Gdx.graphics.getWidth();
     private float h = Gdx.graphics.getHeight();
+    private float worldSize = WorldConstant.basicUnitOfSize*WorldConstant.mapSize;
 
     public CameraManager(){
-        camera =new OrthographicCamera(w*0.3f, w*0.3f*(h/w));
-        camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0);
+        //camera =new OrthographicCamera(w*0.3f, w*0.3f*(h/w));
+        camera =new OrthographicCamera(w, h);
+        //camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0);
+        camera.position.set(worldSize / 2f, worldSize / 2f, 0);
         camera.update();
     }
 
@@ -34,16 +37,16 @@ public class CameraManager {
             camera.zoom -= 0.02;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            camera.translate(-3, 0, 0);
+            camera.translate(-30, 0, 0);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            camera.translate(3, 0, 0);
+            camera.translate(30, 0, 0);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            camera.translate(0, -3, 0);
+            camera.translate(0, -30, 0);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            camera.translate(0, 3, 0);
+            camera.translate(0, 30, 0);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             camera.rotate(-0.5f, 0, 0, 1);
@@ -52,12 +55,15 @@ public class CameraManager {
             camera.rotate(0.5f, 0, 0, 1);
         }
 
-        camera.zoom = MathUtils.clamp(camera.zoom, 0.1f, w/camera.viewportWidth);
+        //camera.zoom = MathUtils.clamp(camera.zoom, 0.1f, w/camera.viewportWidth);
 
         float effectiveViewportWidth = camera.viewportWidth * camera.zoom;
         float effectiveViewportHeight = camera.viewportHeight * camera.zoom;
 
-        camera.position.x = MathUtils.clamp(camera.position.x, effectiveViewportWidth / 2f, w - effectiveViewportWidth / 2f);
-        camera.position.y = MathUtils.clamp(camera.position.y, effectiveViewportHeight / 2f, h - effectiveViewportHeight / 2f);
+        //camera.position.x = MathUtils.clamp(camera.position.x, effectiveViewportWidth / 2f, w - effectiveViewportWidth / 2f);
+        //camera.position.y = MathUtils.clamp(camera.position.y, effectiveViewportHeight / 2f, h - effectiveViewportHeight / 2f);
+        //xy应该保持缩放比,如果显示不下移动
+        //camera.position.x = worldSize/2f;
+        //camera.position.y = worldSize/2f;
     }
 }

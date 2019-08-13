@@ -12,7 +12,7 @@ import com.github.zx.utils.AssetsNameSpace;
  */
 public class SoftSandLand extends SpriteAbstract {
 
-    public static Texture texture = new Texture(Gdx.files.internal(AssetsNameSpace.core$assets$textures$surfaces$SoftSand$png));
+    public static Texture texture = new Texture(Gdx.files.internal(AssetsNameSpace.core$assets$textures$things$pawn$animal$bear$Bear_east$png));
 
     public SoftSandLand(){
         super(new Sprite(texture));
