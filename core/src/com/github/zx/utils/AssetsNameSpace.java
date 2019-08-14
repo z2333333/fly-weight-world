@@ -19,6 +19,8 @@ public class AssetsNameSpace {
 
 	public static final String core$assets$textures$surfaces$SoilRich$png = "core/assets/textures/surfaces/SoilRich.png";
 
+	public static final String core$assets$pshs$SoilRich1$psh = "core/assets/pshs/SoilRich1.psh";
+
 	public static final String core$assets$Burgundy_front$png = "core/assets/Burgundy_front.png";
 
 	public static final String core$assets$Mossy$png = "core/assets/Mossy.png";

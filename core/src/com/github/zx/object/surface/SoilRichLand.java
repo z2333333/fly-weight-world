@@ -20,4 +20,8 @@ public class SoilRichLand extends PolygonSpriteAbstract {
         super(new PolygonSprite(new PolygonRegion(new TextureRegion(texture),pointCoordinates,new short[] {0,1,2})));
     }
     //new float[]{0,0,100,100,80,100,80,120,0,120,0,0}
+
+    public SoilRichLand(String path){
+        super(texture,path);
+    }
 }

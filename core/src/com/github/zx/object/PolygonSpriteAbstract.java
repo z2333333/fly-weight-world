@@ -1,8 +1,8 @@
 package com.github.zx.object;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.PolygonSprite;
-import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.*;
 
 /**
  * @Author: zx
@@ -11,9 +11,17 @@ import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 public abstract class PolygonSpriteAbstract implements ISprite{
 
     private PolygonSprite polygonSprite;
+    private PolygonRegion polygonRegion;
 
     public PolygonSpriteAbstract(PolygonSprite polygonSprite){
         this.polygonSprite = polygonSprite;
+    }
+
+    public PolygonSpriteAbstract(Texture texture,String path){
+        PolygonRegionLoader loader = new PolygonRegionLoader();
+        PolygonRegion polygonRegion = loader.load(new TextureRegion(texture), Gdx.files.internal(path));
+        this.polygonRegion = polygonRegion;
+        this.polygonSprite = new PolygonSprite(this.polygonRegion);
     }
 
     public void setSprite(PolygonSprite sprite) {

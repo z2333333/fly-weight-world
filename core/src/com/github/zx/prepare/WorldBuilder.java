@@ -7,6 +7,7 @@ import com.github.zx.object.surface.SoilLand;
 import com.github.zx.object.surface.SoilRichLand;
 import com.github.zx.render.RenderManager;
 import com.github.zx.render.StaticRender;
+import com.github.zx.utils.AssetsNameSpace;
 import com.github.zx.utils.WorldConstant;
 
 /**
@@ -40,7 +41,7 @@ public class WorldBuilder extends WorldBuilderTemplate {
             }
         }
 
-        SoilRichLand soilRichLand = new SoilRichLand(new float[]{0,0,100,100,80,100,80,120,0,120,0,0});
+        SoilRichLand soilRichLand = new SoilRichLand(AssetsNameSpace.core$assets$pshs$SoilRich1$psh);
         soilRichLand.getSprite().setPosition(w/2,h/2);
         soilRichLand.getSprite().setSize(w,h);
         this.getRenderManager().setWorldObjectChunkMap(0,0, soilRichLand, StaticRender.class);
