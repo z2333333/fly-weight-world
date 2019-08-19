@@ -10,7 +10,7 @@ public class WorldConstant {
      * 世界基本尺寸单位,按设计逻辑一个单位为1米
      * 1个单位大小显示为64像素
      */
-    public final static int basicUnitOfSize = 64;
+    public final static int basicUnitOfSize = 32;
 
     /**
      * 地图相对于单位长度倍数

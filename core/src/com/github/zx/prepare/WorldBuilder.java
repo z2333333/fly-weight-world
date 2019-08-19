@@ -2,9 +2,9 @@ package com.github.zx.prepare;
 
 import com.badlogic.gdx.Gdx;
 import com.github.zx.design.template.WorldBuilderTemplate;
-import com.github.zx.object.surface.SoftSandLand;
 import com.github.zx.object.surface.SoilLand;
 import com.github.zx.object.surface.SoilRichLand;
+import com.github.zx.object.surface.Water;
 import com.github.zx.render.RenderManager;
 import com.github.zx.render.StaticRender;
 import com.github.zx.utils.AssetsNameSpace;
@@ -19,12 +19,12 @@ public class WorldBuilder extends WorldBuilderTemplate {
     public WorldBuilder(RenderManager renderManager) {
         super(renderManager);
     }
+    float w = Gdx.graphics.getWidth();
+    float h = Gdx.graphics.getHeight();
 
     @Override
     public void builderLand() {
         //new object 存入对应render
-        float w = Gdx.graphics.getWidth();
-        float h = Gdx.graphics.getHeight();
         int baseImgZoomRatio = 2;
         int mapSideLength = WorldConstant.basicUnitOfSize * WorldConstant.mapSize;
         //底图,basicUnitOfSize,mapSize三者都为2的幂以保证除尽
@@ -45,9 +45,19 @@ public class WorldBuilder extends WorldBuilderTemplate {
         soilRichLand.getSprite().setPosition(w/2,h/2);
         soilRichLand.getSprite().setSize(w,h);
         this.getRenderManager().setWorldObjectChunkMap(0,0, soilRichLand, StaticRender.class);
-
-        SoftSandLand softSandLand = new SoftSandLand();
-        softSandLand.getSprite().setPosition(w / 2, h / 2);
-        this.getRenderManager().setWorldObjectChunkMap(0,0, softSandLand, StaticRender.class);
     }
+
+    @Override
+    public void builderWater() {
+        Water water = new Water(new float[]{});
+        water.getSprite().setPosition(w / 2+WorldConstant.basicUnitOfSize*100, h / 2+WorldConstant.basicUnitOfSize*100);
+        this.getRenderManager().setWorldObjectChunkMap(0,0,water,StaticRender.class);
+    }
+
+    @Override
+    public void builderStone() {
+
+    }
+
+
 }

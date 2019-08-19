@@ -1,7 +1,13 @@
 package com.github.zx.utils;
 public class AssetsNameSpace {
 
+	public static final String core$assets$WaterShallowRamp$png = "core/assets/WaterShallowRamp.png";
+
+	public static final String core$assets$water$png = "core/assets/water.png";
+
 	public static final String core$assets$CowboyHat_back$png = "core/assets/CowboyHat_back.png";
+
+	public static final String core$assets$textures$buliding$linked$Rock_Atlas$png = "core/assets/textures/buliding/linked/Rock_Atlas.png";
 
 	public static final String core$assets$textures$surfaces$Soil$png = "core/assets/textures/surfaces/Soil.png";
 

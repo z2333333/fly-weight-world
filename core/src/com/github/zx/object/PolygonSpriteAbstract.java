@@ -7,14 +7,21 @@ import com.badlogic.gdx.graphics.g2d.*;
 /**
  * @Author: zx
  * @Date: 2019/8/9 17:32
+ * 关于多边形点和三角,见:https://stackoverflow.com/questions/15733442/drawing-filled-polygon-with-libgdx
  */
 public abstract class PolygonSpriteAbstract implements ISprite{
 
     private PolygonSprite polygonSprite;
     private PolygonRegion polygonRegion;
 
-    public PolygonSpriteAbstract(PolygonSprite polygonSprite){
-        this.polygonSprite = polygonSprite;
+    public PolygonSpriteAbstract(Texture texture,float[] pointCoordinates){
+        if (pointCoordinates.length==0) {
+            int width = texture.getWidth();
+            int height = texture.getHeight();
+            pointCoordinates = new float[]{0,0,width,0,width,height,0,height,0,0};
+        }
+        polygonRegion = new PolygonRegion(new TextureRegion(texture),pointCoordinates,new short[] {0,1,2,0,2,3});
+        polygonSprite = new PolygonSprite(polygonRegion);
     }
 
     public PolygonSpriteAbstract(Texture texture,String path){
