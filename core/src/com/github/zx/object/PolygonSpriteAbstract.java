@@ -42,4 +42,14 @@ public abstract class PolygonSpriteAbstract implements ISprite{
     public void draw(Batch batch) {
         polygonSprite.draw((PolygonSpriteBatch) batch);
     }
+
+    public PolygonSpriteAbstract setPosition(float x, float y){
+        this.polygonSprite.setPosition(x,y);
+        return this;
+    }
+
+    public PolygonSpriteAbstract setSize(float width, float height){
+        this.polygonSprite.setSize(width,height);
+        return this;
+    }
 }

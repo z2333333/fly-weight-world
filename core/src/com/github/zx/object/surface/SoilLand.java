@@ -17,4 +17,16 @@ public class SoilLand extends SpriteAbstract {
     public SoilLand(){
         super(new Sprite(texture));
     }
+
+//    @Override
+//    public SoilLand setPosition(float x, float y) {
+//        super.setPosition(x, y);
+//        return this;
+//    }
+//
+//    @Override
+//    public SoilLand setSize(float width, float height) {
+//        super.setSize(width, height);
+//        return this;
+//    }
 }

@@ -1,5 +1,6 @@
 package com.github.zx.object;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
@@ -18,6 +19,10 @@ public abstract class SpriteAbstract implements ISprite {
         this.sprite = sprite;
     }
 
+    public SpriteAbstract(Texture texture) {
+        this.sprite = new Sprite(texture);
+    }
+
     public void setSprite(Sprite sprite) {
         this.sprite = sprite;
     }
@@ -29,5 +34,15 @@ public abstract class SpriteAbstract implements ISprite {
 
     public void draw(Batch batch) {
         sprite.draw(batch);
+    }
+
+    public SpriteAbstract setPosition(float x, float y){
+        this.sprite.setPosition(x,y);
+        return this;
+    }
+
+    public SpriteAbstract setSize(float width, float height){
+        this.sprite.setSize(width,height);
+        return this;
     }
 }
