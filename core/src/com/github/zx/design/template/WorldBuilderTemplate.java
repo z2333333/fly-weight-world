@@ -11,6 +11,8 @@ public abstract class WorldBuilderTemplate {
     public abstract void builderLand();
     public abstract void builderWater();
     public abstract void builderStone();
+    public abstract void builderPlant();
+
     private RenderManager renderManager;
 
     public WorldBuilderTemplate(RenderManager renderManager){
@@ -21,6 +23,7 @@ public abstract class WorldBuilderTemplate {
         builderLand();
         builderWater();
         builderStone();
+        builderPlant();
     }
 
     public RenderManager getRenderManager() {

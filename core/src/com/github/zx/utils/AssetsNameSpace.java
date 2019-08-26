@@ -21,6 +21,16 @@ public class AssetsNameSpace {
 
 	public static final String core$assets$textures$surfaces$RoughStone$png = "core/assets/textures/surfaces/RoughStone.png";
 
+	public static final String core$assets$textures$things$plant$berry$BerryBushA$png = "core/assets/textures/things/plant/berry/BerryBushA.png";
+
+	public static final String core$assets$textures$things$plant$poplar$TreePoplarA$png = "core/assets/textures/things/plant/poplar/TreePoplarA.png";
+
+	public static final String core$assets$textures$surfaces$GraySmear$png = "core/assets/textures/surfaces/GraySmear.png";
+
+	public static final String core$assets$textures$surfaces$StoneCover$png = "core/assets/textures/surfaces/StoneCover.png";
+
+	public static final String core$assets$textures$things$plant$glass$GrassA$png = "core/assets/textures/things/plant/glass/GrassA.png";
+
 	public static final String core$assets$Male_Average_Pointy_front$png = "core/assets/Male_Average_Pointy_front.png";
 
 	public static final String core$assets$textures$surfaces$SoilRich$png = "core/assets/textures/surfaces/SoilRich.png";

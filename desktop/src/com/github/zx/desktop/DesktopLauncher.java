@@ -10,8 +10,8 @@ public class DesktopLauncher {
 		//config.fullscreen = true;
         //Graphics.DisplayMode displayMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
         //config.setFromDisplayMode(displayMode);
-        config.width=1200;
-        config.height=720;
+        config.width=3840;
+        config.height=2160;
 		new LwjglApplication(new FlyWeightWorldLauncher(), config);
 	}
 }
