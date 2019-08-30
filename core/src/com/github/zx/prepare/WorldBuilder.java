@@ -141,8 +141,8 @@ public class WorldBuilder extends WorldBuilderTemplate {
     @Override
     public void builderAnimal() {
         Human human = new Human();
-        human.setPosition(3500,3300);
-        this.getRenderManager().setWorldObjectChunkMap(0, 0, human, StaticRender.class);
+        human.setPosition(3500,3000);
+        this.getRenderManager().setWorldObjectChunkMap(0, 0,human, StaticRender.class);
     }
 
     private static int areaX;
