@@ -3,11 +3,14 @@ package com.github.zx.prepare;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.github.zx.design.template.WorldBuilderTemplate;
+import com.github.zx.object.animal.Human;
 import com.github.zx.object.build.ConnectorEnum;
 import com.github.zx.object.build.ConnectorFactory;
 import com.github.zx.object.build.Stone.Stone;
 import com.github.zx.object.build.Stone.StoneSmear;
+import com.github.zx.object.plant.Berry;
 import com.github.zx.object.plant.Grass;
+import com.github.zx.object.plant.Poplar;
 import com.github.zx.object.surface.SoilLand;
 import com.github.zx.object.surface.SoilRichLand;
 import com.github.zx.object.surface.Water;
@@ -59,6 +62,7 @@ public class WorldBuilder extends WorldBuilderTemplate {
         Gdx.app.log("runtime", "生成水面");
         Water water = new Water(new float[]{});
         water.setPosition(WorldConstant.basicUnitOfSize * 15, WorldConstant.basicUnitOfSize * 10);
+        water.setSize(1440,720);
         this.getRenderManager().setWorldObjectChunkMap(0, 0, water, StaticRender.class);
     }
 
@@ -109,21 +113,68 @@ public class WorldBuilder extends WorldBuilderTemplate {
     @Override
     public void builderPlant() {
         Gdx.app.log("runtime", "生成植物");
-        int limitX = WorldConstant.basicUnitOfSize * WorldConstant.mapSize;
+        int limitX = WorldConstant.basicUnitOfSize * WorldConstant.mapSize + 2000;
         int limitY = WorldConstant.basicUnitOfSize * WorldConstant.mapSize;
 
-        Random random = new Random();
-
-        for (int i = 0; i <= 200; i++) {
+        for (int i = 0; i <= 600; i++) {
             Grass grass = new Grass();
-            int X = random.nextInt(limitX);
-            int Y = random.nextInt(limitX);
-            System.out.println(X+"-"+Y);
-            grass.setPosition(X,Y);
+            getOutShyAwayArea(limitX);
+            grass.setPosition(areaX,areaY);
             this.getRenderManager().setWorldObjectChunkMap(0, 0, grass, StaticRender.class);
         }
 
+        for (int i = 0; i <= 10; i++) {
+            Berry berry = new Berry();
+            getOutShyAwayArea(limitX);
+            berry.setPosition(areaX,areaY);
+            this.getRenderManager().setWorldObjectChunkMap(0, 0, berry, StaticRender.class);
+        }
+
+        for (int i = 0; i <= 60; i++) {
+            Poplar poplar = new Poplar();
+            getOutShyAwayArea(limitX);
+            poplar.setPosition(areaX, areaY);
+            this.getRenderManager().setWorldObjectChunkMap(0, 0, poplar, StaticRender.class);
+        }
     }
 
+    @Override
+    public void builderAnimal() {
+        Human human = new Human();
+        human.setPosition(3000,3000);
+        this.getRenderManager().setWorldObjectChunkMap(0, 0, human, StaticRender.class);
+    }
+
+    private static int areaX;
+    private static int areaY;
+    private static void getOutShyAwayArea(int limitX){
+
+        Random random = new Random();
+        areaX = random.nextInt(limitX);
+        areaY = random.nextInt(limitX);
+
+        //水面
+        int x1_start = WorldConstant.basicUnitOfSize * 12;
+        int x1_end = x1_start + 1500;
+        int y1_start = WorldConstant.basicUnitOfSize * 8;
+        int y1_end = y1_start + 800;
+
+        int x2_start = WorldConstant.basicUnitOfSize * 140;
+        int x2_end = x2_start + 2000;
+        int y2_start = 0;
+        int y2_end = WorldConstant.basicUnitOfSize * 32 + 80*10;
+
+        if (areaX >= x1_start && areaX<=x1_end) {
+            if (areaY >= y1_start && areaY<=y1_end) {
+                getOutShyAwayArea(limitX);
+            }
+        }
+
+        if (areaX > x2_start && areaX<x2_end) {
+            if (areaY > y2_start && areaY<y2_end) {
+                getOutShyAwayArea(limitX);
+            }
+        }
+    }
 
 }
